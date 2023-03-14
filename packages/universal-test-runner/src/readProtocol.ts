@@ -4,14 +4,7 @@
 import { mapEnvToResult, Environment } from './mapEnvToResult'
 import { log } from './log'
 import { ProtocolEnvVars } from './ProtocolEnvVars'
-
-export interface ProtocolResult {
-  version: string
-  testsToRun?: string
-  logFileName?: string
-  reportFormat?: string
-  testsToRunFile?: string
-}
+import { ProtocolResult } from '@aws/universal-test-runner-types'
 
 export function readProtocol(env: Environment): [ProtocolResult, { [key: string]: string }] {
   const rawValues = {}
