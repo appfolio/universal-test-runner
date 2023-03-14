@@ -10,7 +10,7 @@ describe('Maven adapter', () => {
     spawn = jest.fn(() => ({ status: 0 }))
 
     jest.resetModules()
-    jest.doMock('@aws/universal-test-runner-spawn', () => ({ spawn }))
+    jest.doMock('@appfolio/universal-test-runner-spawn', () => ({ spawn }))
   })
 
   it('executes maven when given tests to run', async () => {
