@@ -1,7 +1,7 @@
 // Copyright Amazon.com, Inc. or its affiliates. All Rights Reserved.
 // SPDX-License-Identifier: Apache-2.0
 
-import { ProtocolResult } from '@aws/universal-test-runner-types'
+import { ProtocolResult } from '@appfolio/universal-test-runner-types'
 import { mapEnvToResult, Environment } from './mapEnvToResult'
 import { log } from './log'
 import { ProtocolEnvVars } from './ProtocolEnvVars'
