@@ -4,14 +4,14 @@
 import { log } from './log'
 import path from 'path'
 
-import { Adapter } from '@aws/universal-test-runner-types'
+import { Adapter } from '@appfolio/universal-test-runner-types'
 
 export const builtInAdapters: { [key: string]: string } = {
-  jest: '@aws/universal-test-adapter-jest',
-  maven: '@aws/universal-test-adapter-maven',
-  gradle: '@aws/universal-test-adapter-gradle',
-  pytest: '@aws/universal-test-adapter-pytest',
-  dotnet: '@aws/universal-test-adapter-dotnet',
+  jest: '@appfolio/universal-test-adapter-jest',
+  maven: '@appfolio/universal-test-adapter-maven',
+  gradle: '@appfolio/universal-test-adapter-gradle',
+  pytest: '@appfolio/universal-test-adapter-pytest',
+  dotnet: '@appfolio/universal-test-adapter-dotnet',
 } as const
 
 export async function loadAdapter(rawAdapterModule: string, cwd: string): Promise<Adapter> {

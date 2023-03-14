@@ -1,5 +1,5 @@
 {
-  "name": "@aws/universal-test-adapter-dotnet",
+  "name": "@appfolio/universal-test-adapter-dotnet",
   "version": "0.2.0",
   "license": "Apache-2.0",
   "main": "dist/lib/src/index.js",
@@ -14,11 +14,11 @@
     "THIRD_PARTY_LICENSES"
   ],
   "dependencies": {
-    "@aws/universal-test-runner-logger": "^0.2.0",
-    "@aws/universal-test-runner-spawn": "^0.2.0"
+    "@appfolio/universal-test-runner-logger": "^0.2.0",
+    "@appfolio/universal-test-runner-spawn": "^0.2.0"
   },
   "devDependencies": {
-    "@aws/universal-test-runner-types": "*"
+    "@appfolio/universal-test-runner-types": "*"
   },
   "repository": {
     "type": "git",

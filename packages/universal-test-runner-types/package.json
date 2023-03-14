@@ -1,5 +1,5 @@
 {
-  "name": "@aws/universal-test-runner-types",
+  "name": "@appfolio/universal-test-runner-types",
   "version": "0.2.0",
   "license": "Apache-2.0",
   "main": "dist/lib/index.js",
