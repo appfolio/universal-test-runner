@@ -1,6 +1,6 @@
 {
-  "name": "@aws/universal-test-runner",
-  "version": "0.2.0",
+  "name": "@appfolio/universal-test-runner",
+  "version": "0.2.11",
   "license": "Apache-2.0",
   "main": "dist/lib/src/index.js",
   "types": "dist/types/src/index.d.ts",
@@ -24,16 +24,16 @@
     "THIRD_PARTY_LICENSES"
   ],
   "dependencies": {
-    "@aws/universal-test-adapter-gradle": "^0.2.0",
-    "@aws/universal-test-adapter-jest": "^0.2.0",
-    "@aws/universal-test-adapter-maven": "^0.2.0",
-    "@aws/universal-test-adapter-pytest": "^0.2.0",
-    "@aws/universal-test-adapter-dotnet": "^0.2.0",
-    "@aws/universal-test-runner-logger": "^0.2.0",
+    "@appfolio/universal-test-adapter-dotnet": "^0.2.0",
+    "@appfolio/universal-test-adapter-gradle": "^0.2.0",
+    "@appfolio/universal-test-adapter-jest": "^0.2.0",
+    "@appfolio/universal-test-adapter-maven": "^0.2.0",
+    "@appfolio/universal-test-adapter-pytest": "^0.2.0",
+    "@appfolio/universal-test-runner-logger": "^0.2.0",
     "yargs": "^17.7.1"
   },
   "devDependencies": {
-    "@aws/universal-test-runner-types": "*",
+    "@appfolio/universal-test-runner-types": "*",
     "@types/yargs": "^17.0.22"
   },
   "repository": {
@@ -43,5 +43,6 @@
   "bugs": {
     "url": "https://github.com/aws/universal-test-runner/issues"
   },
-  "homepage": "https://github.com/aws/universal-test-runner#readme"
+  "homepage": "https://github.com/aws/universal-test-runner#readme",
+  "private": "true"
 }

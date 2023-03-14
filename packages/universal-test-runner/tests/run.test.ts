@@ -3,7 +3,7 @@
 
 import { run } from '../src/run'
 import { ErrorCodes } from '../bin/ErrorCodes'
-import { Adapter } from '@aws/universal-test-runner-types'
+import { Adapter } from '@appfolio/universal-test-runner-types'
 import { vol } from 'memfs'
 
 jest.mock('../src/log')
