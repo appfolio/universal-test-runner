@@ -10,7 +10,7 @@ describe('Jest adapter', () => {
     spawn = jest.fn(() => ({ status: 0 }))
 
     jest.resetModules()
-    jest.doMock('@aws/universal-test-runner-spawn', () => ({ spawn }))
+    jest.doMock('@appfolio/universal-test-runner-spawn', () => ({ spawn }))
     jest.doMock('../src/buildBaseTestCommand', () => ({
       buildBaseTestCommand: () => ['jest', []],
     }))

@@ -1,11 +1,11 @@
 // Copyright Amazon.com, Inc. or its affiliates. All Rights Reserved.
 // SPDX-License-Identifier: Apache-2.0
 
-import { spawn } from '@aws/universal-test-runner-spawn'
+import { spawn } from '@appfolio/universal-test-runner-spawn'
 import { log } from './log'
 import { buildBaseTestCommand } from './buildBaseTestCommand'
 
-import { AdapterInput, AdapterOutput } from '@aws/universal-test-runner-types'
+import { AdapterInput, AdapterOutput } from '@appfolio/universal-test-runner-types'
 
 const toUnixPath = (filepath: string): string => {
   // https://quickref.me/convert-a-windows-file-path-to-unix-path
