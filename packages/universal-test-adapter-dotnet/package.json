@@ -1,6 +1,6 @@
 {
-  "name": "@aws/universal-test-adapter-dotnet",
-  "version": "0.2.0",
+  "name": "@appfolio/universal-test-adapter-dotnet",
+  "version": "0.2.21",
   "license": "Apache-2.0",
   "main": "dist/lib/src/index.js",
   "scripts": {
@@ -14,11 +14,11 @@
     "THIRD_PARTY_LICENSES"
   ],
   "dependencies": {
-    "@aws/universal-test-runner-logger": "^0.2.0",
-    "@aws/universal-test-runner-spawn": "^0.2.0"
+    "@appfolio/universal-test-runner-logger": "^0.2.21",
+    "@appfolio/universal-test-runner-spawn": "^0.2.21"
   },
   "devDependencies": {
-    "@aws/universal-test-runner-types": "*"
+    "@appfolio/universal-test-runner-types": "^0.2.21"
   },
   "repository": {
     "type": "git",
@@ -27,5 +27,6 @@
   "bugs": {
     "url": "https://github.com/aws/universal-test-runner/issues"
   },
-  "homepage": "https://github.com/aws/universal-test-runner#readme"
+  "homepage": "https://github.com/aws/universal-test-runner#readme",
+  "private": "true"
 }

@@ -10,7 +10,7 @@ import {
   AdapterOutput,
   TestCase,
   ProtocolResult,
-} from '@aws/universal-test-runner-types'
+} from '@appfolio/universal-test-runner-types'
 import { ErrorCodes } from '../bin/ErrorCodes'
 
 function parseTestCasesToRun(testCaseString: string | undefined): TestCase[] {
