@@ -1,0 +1,19 @@
+{
+  "tasksRunnerOptions": {
+    "default": {
+      "runner": "@nrwl/nx-cloud",
+      "options": {
+        "cacheableOperations": [
+          "compile"
+        ]
+      }
+    }
+  },
+  "targetDefaults": {
+    "compile": {
+      "dependsOn": [
+        { "projects": "dependencies", "target": "compile" }
+      ]
+    }
+  }
+}

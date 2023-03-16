@@ -1,0 +1,111 @@
+name: Sync with aws/universal-test-runner
+
+on:
+  schedule:
+    - cron: '0 0 * * *'
+  workflow_dispatch:
+
+jobs:
+  sync:
+    environment: production
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout upstream
+        uses: actions/checkout@v3
+        with:
+          repository: 'aws/universal-test-runner'
+          fetch-depth: 0
+          token: ${{ secrets.GH_TOKEN }}
+      - name: Configure Git
+        run: |
+          git config user.name "Otto"
+          git config user.email "af-otto@users.noreply.github.com"
+      - name: Set remote to fork
+        run: git remote set-url origin https://github.com/appfolio/universal-test-runner.git
+      - name: Rename upstream's "main" branch to "sync"
+        run: git branch -m sync
+      - name: Fetch fork
+        run: git fetch origin sync
+        continue-on-error: true
+      - name: Fetch current main
+        run: git fetch origin main
+      - name: Setup Node.js environment
+        uses: actions/setup-node@v3.3.0
+        with:
+          node-version: 18.x
+      - name: Configure NPM
+        run: |
+          echo "@appfolio:registry=https://npm.pkg.github.com" > .npmrc
+          echo "//npm.pkg.github.com/:_authToken=${{ secrets.GH_TOKEN }}" >> .npmrc
+          echo "always-auth=true" >> .npmrc
+      # - name: Rename package scopes
+      #   uses: jacobtomlinson/gha-find-replace@v3
+      #   with:
+      #     find: "@aws"
+      #     replace: "@appfolio"
+      #     include: "**/*.{ts,js,json}"
+      #     exclude: "{.git/**,node_modules/**,package-lock.json}"
+      - name: Set offical AWS packages as private
+        run: npm pkg set -ws 'private'='true'
+      # - name: Reset package-lock.json
+      #   run: git restore -s origin/main -- package-lock.json
+      # - name: Copy version number from existing fork versions
+      #   run: |
+      #     npm exec -ws --call 'npm pkg set -ws "version"="$(git show origin/main:$(git ls-files --full-name package.json) | jq --raw-output .version)"'
+
+      #     repo_root=$(git rev-parse --show-toplevel)
+      #     for package in packages/*/ ; do
+      #       echo "Resetting $package"
+      #       cd $repo_root/$package
+
+      #       echo "=== Updating package.json ==="
+      #       sed -i 's/"\(@appfolio\/universal-test.*\)": "\([\^0-9.]*\)"/"\1": "\*"/g' package.json
+      #       cat package.json
+      #       echo "=== Done updating package.json ==="
+      #     done
+
+      #     cd $repo_root
+      #     npx -ws --yes update-by-scope @appfolio
+      #   continue-on-error: true
+      # - name: Update package-lock.json
+      #   run: | 
+      #     npm install
+      #     git config --unset core.hooksPath
+      - name: Commit any updates
+        run: |
+          git add .
+          git reset .npmrc
+          git commit -m "chore: update for fork compatibility"
+        continue-on-error: true
+      - name: Try resolving conflicts
+        run: |
+          git stash --include-untracked 
+
+          git merge origin/main || (
+            npm install && \
+            git add package-lock.json && \
+            EDITOR=true git merge --continue
+          ) && echo "Successfully merged" || (
+            echo "Failed to merge" && \
+            git merge --abort && \
+            echo "Merge aborted"
+          )
+
+          git stash pop || echo "No stash to pop"
+      - name: Push "sync" branch
+        run: git push --force-with-lease origin sync
+      - name: Authenticate GitHub CLI
+        run: echo "${{ secrets.GH_TOKEN }}" | gh auth login --with-token
+      - name: Compare and create pull request
+        run: |
+          gh pr create \
+          --title "Sync with upstream" \
+          --body "This is an automated PR to bring this repo up-to-date with [aws/universal-test-runner](//github.com/aws/universal-test-runner)." \
+          --base main \
+          --head sync \
+          --reviewer "@appfolio/developer-experience" \
+          --repo appfolio/universal-test-runner
+        continue-on-error: true
+      - name: Enable auto-merge on PR
+        run: gh pr merge --auto --merge sync
+        continue-on-error: true
