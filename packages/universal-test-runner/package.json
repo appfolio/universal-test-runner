@@ -24,11 +24,11 @@
     "THIRD_PARTY_LICENSES"
   ],
   "dependencies": {
+    "@aws/universal-test-adapter-dotnet": "^0.3.0",
     "@aws/universal-test-adapter-gradle": "^0.3.0",
     "@aws/universal-test-adapter-jest": "^0.3.0",
     "@aws/universal-test-adapter-maven": "^0.3.0",
     "@aws/universal-test-adapter-pytest": "^0.3.0",
-    "@aws/universal-test-adapter-dotnet": "^0.3.0",
     "@aws/universal-test-runner-logger": "^0.3.0",
     "yargs": "^17.7.1"
   },
@@ -43,5 +43,6 @@
   "bugs": {
     "url": "https://github.com/aws/universal-test-runner/issues"
   },
-  "homepage": "https://github.com/aws/universal-test-runner#readme"
+  "homepage": "https://github.com/aws/universal-test-runner#readme",
+  "private": "true"
 }
