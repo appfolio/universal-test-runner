@@ -30,6 +30,9 @@ jobs:
           npm ci
           git config --unset core.hooksPath
 
+      - name: Build
+        run: npm run compile
+
       - name: Bump versions
         run: npx lerna version --yes --no-private
         # run: npx lerna version --yes
