@@ -1,0 +1,29 @@
+{
+  "name": "@appfolio/universal-test-runner-nearest-files",
+  "version": "0.0.0",
+  "license": "Apache-2.0",
+  "main": "dist/lib/src/index.js",
+  "types": "dist/types/src/index.d.ts",
+  "scripts": {
+    "clean": "rm -rf dist",
+    "compile": "tsc",
+    "prepack": "npm run clean && npm run compile"
+  },
+  "files": [
+    "dist/lib/src",
+    "dist/types/src",
+    "NOTICE",
+    "THIRD_PARTY_LICENSES"
+  ],
+  "dependencies": {
+    "@aws/universal-test-runner-logger": "^0.3.1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/appfolio/universal-test-runner"
+  },
+  "bugs": {
+    "url": "https://github.com/appfolio/universal-test-runner/issues"
+  },
+  "homepage": "https://github.com/appfolio/universal-test-runner#readme"
+}
