@@ -22,6 +22,9 @@
     "type": "git",
     "url": "https://github.com/appfolio/universal-test-runner"
   },
+  "publishConfig": {
+    "access": "public"
+  },
   "bugs": {
     "url": "https://github.com/appfolio/universal-test-runner/issues"
   },

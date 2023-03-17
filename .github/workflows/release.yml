@@ -39,12 +39,22 @@ jobs:
         env:
           GH_TOKEN: ${{ secrets.GH_TOKEN }}
 
+      - name: Configure NPM
+        run: 
+          echo "//registry.npmjs.org/:_authToken=${{ secrets.NPM_TOKEN }}" > .npmrc
+          echo "always-auth=true" >> .npmrc
+
+      - name: Publish to NPM
+        run: npx lerna publish from-git --yes
+        env:
+          NODE_AUTH_TOKEN: ${{ secrets.NPM_TOKEN }}        
+
       - name: Reconfigure registry URL
         uses: actions/setup-node@v3.3.0
         with:
           registry-url: 'https://npm.pkg.github.com/'
 
-      - name: Configure NPM
+      - name: Configure GitHub Packages
         run: |
           echo "@appfolio:registry=https://npm.pkg.github.com" > .npmrc
           echo "//npm.pkg.github.com/:_authToken=${{ secrets.GH_TOKEN }}" >> .npmrc
@@ -52,16 +62,3 @@ jobs:
       - name: Publish to GitHub Packages
         run: npx lerna publish from-git --yes
         # run: npx lerna publish from-git --yes --include-private "*"
-
-      - name: Reconfigure registry URL
-        uses: actions/setup-node@v3.3.0
-        with:
-          registry-url: 'https://registry.npmjs.org/'
-
-      - name: Configure NPM
-        run: |
-          echo "registry=https://registry.npmjs.org" > .npmrc
-          echo "//registry.npmjs.org/:_authToken=${{ secrets.NPM_TOKEN }}" >> .npmrc
-
-      - name: Publish to NPM
-        run: npx lerna publish from-git --yes
