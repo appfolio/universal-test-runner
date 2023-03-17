@@ -27,15 +27,6 @@ module.exports = {
     '@typescript-eslint/no-empty-function': 'off',
     '@typescript-eslint/no-floating-promises': 'error',
     'no-console': 'error',
-    'header/header': [
-      'error',
-      'line',
-      [
-        ' Copyright Amazon.com, Inc. or its affiliates. All Rights Reserved.',
-        ' SPDX-License-Identifier: Apache-2.0',
-      ],
-      2,
-    ],
     'no-restricted-syntax': [
       'error',
       {
