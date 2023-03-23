@@ -1,0 +1,36 @@
+{
+  "name": "@appfolio/universal-test-adapter-mocha",
+  "version": "0.0.0",
+  "license": "Apache-2.0",
+  "main": "dist/lib/src/index.js",
+  "scripts": {
+    "clean": "rm -rf dist",
+    "compile": "tsc",
+    "prepack": "npm run clean && npm run compile"
+  },
+  "files": [
+    "dist/lib/src",
+    "NOTICE",
+    "THIRD_PARTY_LICENSES"
+  ],
+  "dependencies": {
+    "@appfolio/universal-test-runner-nearest-files": "^0.1.0",
+    "@aws/universal-test-runner-logger": "^0.3.1",
+    "@aws/universal-test-runner-spawn": "^0.3.1",
+    "mocha": "^10.2.0"
+  },
+  "devDependencies": {
+    "@aws/universal-test-runner-types": "*"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/appfolio/universal-test-runner"
+  },
+  "publishConfig": {
+    "access": "public"
+  },
+  "bugs": {
+    "url": "https://github.com/appfolio/universal-test-runner/issues"
+  },
+  "homepage": "https://github.com/appfolio/universal-test-runner#readme"
+}
