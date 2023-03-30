@@ -28,5 +28,6 @@
   "bugs": {
     "url": "https://github.com/aws/universal-test-runner/issues"
   },
-  "homepage": "https://github.com/aws/universal-test-runner#readme"
+  "homepage": "https://github.com/aws/universal-test-runner#readme",
+  "private": "true"
 }
